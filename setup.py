@@ -7,7 +7,7 @@ description = description.replace("/latest/", "/stable/")
 setup(
     name="canopen",
     url="https://github.com/christiansandberg/canopen",
-    use_scm_version=True,
+    use_scm_version=False,
     packages=find_packages(),
     author="Christian Sandberg",
     author_email="christiansandberg@me.com",
@@ -16,6 +16,7 @@ setup(
     long_description=description,
     license="MIT",
     platforms=["any"],
+    version='1.2.0',
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "License :: OSI Approved :: MIT License",
@@ -24,10 +25,14 @@ setup(
         "Intended Audience :: Developers",
         "Topic :: Scientific/Engineering"
     ],
-    install_requires=["python-can>=3.0.0"],
+    install_requires=[
+        "python-can==3.0.0",
+        "wrapt==1.10.11",
+        "setuptools==39.2.0"
+    ],
     extras_require={
         "db_export": ["canmatrix"]
     },
-    setup_requires=["setuptools_scm"],
+    # setup_requires=["setuptools_scm"],
     include_package_data=True
 )
